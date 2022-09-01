@@ -45,7 +45,6 @@ function getMostCommonGenres(books) {
 }
 
 
-
 function getMostPopularBooks(books) {
   // the amount that a book has been checked out can be checked by how often it is borrowed
   //since borrowed is an array i should be able to push
@@ -79,6 +78,11 @@ function getMostPopularAuthors(books, authors) {
     result.push(theAuthor);
   });
   return result.sort((a, b) => b.count - a.count).slice(0, 5);
+}
+
+function sortnSplice(arr) {
+  arr.sort((entryA,entryB) => entryB.count - entryA.count)
+  return arr.splice(0,5)
 }
 
 module.exports = {
