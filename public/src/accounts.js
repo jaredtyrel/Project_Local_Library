@@ -9,6 +9,11 @@
   }
 */
 
+//helper function
+function makeLowerCase(string) {
+  return string.toLowerCase()
+}
+
 function findAccountById(accounts, id) {
   // return the opject that has the sameIB
   // for loop to look at all the objects
@@ -19,14 +24,12 @@ function findAccountById(accounts, id) {
 }
 
 function sortAccountsByLastName(accounts) {
-  // return given array that is sorted by last name
-  // use sort methode on given array
+  const sortedAccounts = accounts.sort((accountA, accountB) => 
+  makeLowerCase(accountA.name.last) > makeLowerCase(accountB.name.last) ? 1 : -1);
+  //accountA.name.last.toLowerCase() > accountB.name.last ? 1 : -1); 
+  return sortedAccounts;
+} 
 
-  accounts.sort((accA, accB) =>
-    accA.name.last.toLowerCase() > accB.name.last.toLowerCase() ? 1 : -1
-  );
-  return accounts;
-}
 
 function getTotalNumberOfBorrows(account, books) {
   // return the number of accounts that have borrowed any given book
@@ -46,18 +49,6 @@ function getTotalNumberOfBorrows(account, books) {
     return booksOwed;
   });
 }
-function findBook(book, booksOwed, accId) {
-  
-}
-
-//   const accId = account.id;
-//   borrowed = 0;
-//   books.forEach((book) =>
-//     book.borrows.forEach((borrow) => accId === borrow.id && borrowed++)
-//   );
-
-//   return borrowed;
-// }
 
 function getBooksPossessedByAccount(account, books, authors) {
   // answer structure
